@@ -12,6 +12,7 @@ class PostAdmin(admin.ModelAdmin):
         'group',
         'image',
     )
+    list_editable = ('group',)
     search_fields = ('text',)
     list_filter = ('pub_date',)
     empty_value_display = '-пусто-'
