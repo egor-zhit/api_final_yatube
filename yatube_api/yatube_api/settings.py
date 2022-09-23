@@ -18,7 +18,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
+    'django_filters',
     'djoser',
+    
     'api',
     'posts',
 ]
@@ -62,30 +64,26 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME':
-            'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME':
-            'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME':
-            'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
-        'NAME':
-            'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
 
-LANGUAGE_CODE = 'ru-RU'
+LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Europe/Moscow'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_L10N = False
+USE_L10N = True
 
 USE_TZ = True
 
@@ -95,8 +93,9 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static/'),)
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+        'rest_framework.permissions.IsAuthenticated',
     ],
+
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
